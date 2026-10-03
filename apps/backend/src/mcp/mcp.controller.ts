@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Query, Req, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { McpService } from './mcp.service';
 import {
@@ -35,5 +35,20 @@ export class McpController {
     @Query('apiaryId') apiaryId?: string,
   ) {
     return this.mcp.listHives(await this.userId(req), apiaryId);
+  }
+  @Get('hives/:hiveId')
+  async getHive(
+    @Req() req: WorkerRequest,
+    @Param('hiveId') hiveId: string,
+  ) {
+    return this.mcp.getHive(await this.userId(req), hiveId);
+  }
+
+  @Get('hives/:hiveId/context')
+  async getHiveContext(
+    @Req() req: WorkerRequest,
+    @Param('hiveId') hiveId: string,
+  ) {
+    return this.mcp.getHiveContext(await this.userId(req), hiveId);
   }
 }
