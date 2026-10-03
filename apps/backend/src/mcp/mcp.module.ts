@@ -4,10 +4,11 @@ import { McpService } from './mcp.service';
 import { HiveModule } from '../hives/hive.module';
 import { ApiariesModule } from '../apiaries/apiaries.module';
 import { WorkerTokensModule } from '../worker-tokens/worker-tokens.module';
+import { WorkerJobsModule } from '../worker-jobs/worker-jobs.module';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
-  imports: [HiveModule, ApiariesModule, WorkerTokensModule],
+  imports: [HiveModule, ApiariesModule, WorkerTokensModule, WorkerJobsModule],
   controllers: [McpController],
   providers: [McpService, PrismaService],
 })
