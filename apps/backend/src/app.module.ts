@@ -50,6 +50,7 @@ import { HiveScaleModule } from './hivescale/hivescale.module';
 import { AssistantModule } from './assistant/assistant.module';
 import { MeasurementsModule } from './measurements/measurements.module';
 import { AccountTransferModule } from './account-transfer/account-transfer.module';
+import { McpModule } from './mcp/mcp.module';
 
 // Static files that must always be revalidated rather than served from the
 // browser's HTTP cache, so a deployed update is picked up (see the
@@ -125,6 +126,7 @@ const NO_STORE_FILES = /(?:^|[\\/])(?:sw\.js|registerSW\.js|index\.html)$/;
     AssistantModule,
     MeasurementsModule,
     AccountTransferModule,
+    McpModule,
   ],
   controllers: [AppController, EnvController],
   providers: [
